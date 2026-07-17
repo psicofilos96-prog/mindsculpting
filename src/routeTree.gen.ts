@@ -15,9 +15,11 @@ import { Route as SlideRouteImport } from './routes/slide'
 import { Route as SequenciaRouteImport } from './routes/sequencia'
 import { Route as RegraRouteImport } from './routes/regra'
 import { Route as RecallRouteImport } from './routes/recall'
+import { Route as MorseRouteImport } from './routes/morse'
 import { Route as MemoriaRouteImport } from './routes/memoria'
 import { Route as MatrizRouteImport } from './routes/matriz'
 import { Route as GridRouteImport } from './routes/grid'
+import { Route as EinsteinRouteImport } from './routes/einstein'
 import { Route as DicoticoRouteImport } from './routes/dicotico'
 import { Route as CruzadaRouteImport } from './routes/cruzada'
 import { Route as CriptoRouteImport } from './routes/cripto'
@@ -30,9 +32,11 @@ import { Route as SlideIndexRouteImport } from './routes/slide.index'
 import { Route as SequenciaIndexRouteImport } from './routes/sequencia.index'
 import { Route as RegraIndexRouteImport } from './routes/regra.index'
 import { Route as RecallIndexRouteImport } from './routes/recall.index'
+import { Route as MorseIndexRouteImport } from './routes/morse.index'
 import { Route as MemoriaIndexRouteImport } from './routes/memoria.index'
 import { Route as MatrizIndexRouteImport } from './routes/matriz.index'
 import { Route as GridIndexRouteImport } from './routes/grid.index'
+import { Route as EinsteinIndexRouteImport } from './routes/einstein.index'
 import { Route as DicoticoIndexRouteImport } from './routes/dicotico.index'
 import { Route as CruzadaIndexRouteImport } from './routes/cruzada.index'
 import { Route as CriptoIndexRouteImport } from './routes/cripto.index'
@@ -45,10 +49,12 @@ import { Route as SequenciaJogarRouteImport } from './routes/sequencia.jogar'
 import { Route as RegraJogarRouteImport } from './routes/regra.jogar'
 import { Route as RecallResultadoRouteImport } from './routes/recall.resultado'
 import { Route as RecallJogarRouteImport } from './routes/recall.jogar'
+import { Route as MorseMundo1RouteImport } from './routes/morse.mundo-1'
 import { Route as MemoriaResultadoRouteImport } from './routes/memoria.resultado'
 import { Route as MemoriaJogarRouteImport } from './routes/memoria.jogar'
 import { Route as MatrizJogarRouteImport } from './routes/matriz.jogar'
 import { Route as GridJogarRouteImport } from './routes/grid.jogar'
+import { Route as EinsteinJogarRouteImport } from './routes/einstein.jogar'
 import { Route as DicoticoJogarRouteImport } from './routes/dicotico.jogar'
 import { Route as CruzadaJogarRouteImport } from './routes/cruzada.jogar'
 import { Route as CriptoJogarRouteImport } from './routes/cripto.jogar'
@@ -87,6 +93,11 @@ const RecallRoute = RecallRouteImport.update({
   path: '/recall',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MorseRoute = MorseRouteImport.update({
+  id: '/morse',
+  path: '/morse',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MemoriaRoute = MemoriaRouteImport.update({
   id: '/memoria',
   path: '/memoria',
@@ -100,6 +111,11 @@ const MatrizRoute = MatrizRouteImport.update({
 const GridRoute = GridRouteImport.update({
   id: '/grid',
   path: '/grid',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EinsteinRoute = EinsteinRouteImport.update({
+  id: '/einstein',
+  path: '/einstein',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DicoticoRoute = DicoticoRouteImport.update({
@@ -162,6 +178,11 @@ const RecallIndexRoute = RecallIndexRouteImport.update({
   path: '/',
   getParentRoute: () => RecallRoute,
 } as any)
+const MorseIndexRoute = MorseIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => MorseRoute,
+} as any)
 const MemoriaIndexRoute = MemoriaIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -176,6 +197,11 @@ const GridIndexRoute = GridIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => GridRoute,
+} as any)
+const EinsteinIndexRoute = EinsteinIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => EinsteinRoute,
 } as any)
 const DicoticoIndexRoute = DicoticoIndexRouteImport.update({
   id: '/',
@@ -237,6 +263,11 @@ const RecallJogarRoute = RecallJogarRouteImport.update({
   path: '/jogar',
   getParentRoute: () => RecallRoute,
 } as any)
+const MorseMundo1Route = MorseMundo1RouteImport.update({
+  id: '/mundo-1',
+  path: '/mundo-1',
+  getParentRoute: () => MorseRoute,
+} as any)
 const MemoriaResultadoRoute = MemoriaResultadoRouteImport.update({
   id: '/resultado',
   path: '/resultado',
@@ -256,6 +287,11 @@ const GridJogarRoute = GridJogarRouteImport.update({
   id: '/jogar',
   path: '/jogar',
   getParentRoute: () => GridRoute,
+} as any)
+const EinsteinJogarRoute = EinsteinJogarRouteImport.update({
+  id: '/jogar',
+  path: '/jogar',
+  getParentRoute: () => EinsteinRoute,
 } as any)
 const DicoticoJogarRoute = DicoticoJogarRouteImport.update({
   id: '/jogar',
@@ -301,9 +337,11 @@ export interface FileRoutesByFullPath {
   '/cripto': typeof CriptoRouteWithChildren
   '/cruzada': typeof CruzadaRouteWithChildren
   '/dicotico': typeof DicoticoRouteWithChildren
+  '/einstein': typeof EinsteinRouteWithChildren
   '/grid': typeof GridRouteWithChildren
   '/matriz': typeof MatrizRouteWithChildren
   '/memoria': typeof MemoriaRouteWithChildren
+  '/morse': typeof MorseRouteWithChildren
   '/recall': typeof RecallRouteWithChildren
   '/regra': typeof RegraRouteWithChildren
   '/sequencia': typeof SequenciaRouteWithChildren
@@ -317,10 +355,12 @@ export interface FileRoutesByFullPath {
   '/cripto/jogar': typeof CriptoJogarRoute
   '/cruzada/jogar': typeof CruzadaJogarRoute
   '/dicotico/jogar': typeof DicoticoJogarRoute
+  '/einstein/jogar': typeof EinsteinJogarRoute
   '/grid/jogar': typeof GridJogarRoute
   '/matriz/jogar': typeof MatrizJogarRoute
   '/memoria/jogar': typeof MemoriaJogarRoute
   '/memoria/resultado': typeof MemoriaResultadoRoute
+  '/morse/mundo-1': typeof MorseMundo1Route
   '/recall/jogar': typeof RecallJogarRoute
   '/recall/resultado': typeof RecallResultadoRoute
   '/regra/jogar': typeof RegraJogarRoute
@@ -333,9 +373,11 @@ export interface FileRoutesByFullPath {
   '/cripto/': typeof CriptoIndexRoute
   '/cruzada/': typeof CruzadaIndexRoute
   '/dicotico/': typeof DicoticoIndexRoute
+  '/einstein/': typeof EinsteinIndexRoute
   '/grid/': typeof GridIndexRoute
   '/matriz/': typeof MatrizIndexRoute
   '/memoria/': typeof MemoriaIndexRoute
+  '/morse/': typeof MorseIndexRoute
   '/recall/': typeof RecallIndexRoute
   '/regra/': typeof RegraIndexRoute
   '/sequencia/': typeof SequenciaIndexRoute
@@ -352,10 +394,12 @@ export interface FileRoutesByTo {
   '/cripto/jogar': typeof CriptoJogarRoute
   '/cruzada/jogar': typeof CruzadaJogarRoute
   '/dicotico/jogar': typeof DicoticoJogarRoute
+  '/einstein/jogar': typeof EinsteinJogarRoute
   '/grid/jogar': typeof GridJogarRoute
   '/matriz/jogar': typeof MatrizJogarRoute
   '/memoria/jogar': typeof MemoriaJogarRoute
   '/memoria/resultado': typeof MemoriaResultadoRoute
+  '/morse/mundo-1': typeof MorseMundo1Route
   '/recall/jogar': typeof RecallJogarRoute
   '/recall/resultado': typeof RecallResultadoRoute
   '/regra/jogar': typeof RegraJogarRoute
@@ -368,9 +412,11 @@ export interface FileRoutesByTo {
   '/cripto': typeof CriptoIndexRoute
   '/cruzada': typeof CruzadaIndexRoute
   '/dicotico': typeof DicoticoIndexRoute
+  '/einstein': typeof EinsteinIndexRoute
   '/grid': typeof GridIndexRoute
   '/matriz': typeof MatrizIndexRoute
   '/memoria': typeof MemoriaIndexRoute
+  '/morse': typeof MorseIndexRoute
   '/recall': typeof RecallIndexRoute
   '/regra': typeof RegraIndexRoute
   '/sequencia': typeof SequenciaIndexRoute
@@ -386,9 +432,11 @@ export interface FileRoutesById {
   '/cripto': typeof CriptoRouteWithChildren
   '/cruzada': typeof CruzadaRouteWithChildren
   '/dicotico': typeof DicoticoRouteWithChildren
+  '/einstein': typeof EinsteinRouteWithChildren
   '/grid': typeof GridRouteWithChildren
   '/matriz': typeof MatrizRouteWithChildren
   '/memoria': typeof MemoriaRouteWithChildren
+  '/morse': typeof MorseRouteWithChildren
   '/recall': typeof RecallRouteWithChildren
   '/regra': typeof RegraRouteWithChildren
   '/sequencia': typeof SequenciaRouteWithChildren
@@ -402,10 +450,12 @@ export interface FileRoutesById {
   '/cripto/jogar': typeof CriptoJogarRoute
   '/cruzada/jogar': typeof CruzadaJogarRoute
   '/dicotico/jogar': typeof DicoticoJogarRoute
+  '/einstein/jogar': typeof EinsteinJogarRoute
   '/grid/jogar': typeof GridJogarRoute
   '/matriz/jogar': typeof MatrizJogarRoute
   '/memoria/jogar': typeof MemoriaJogarRoute
   '/memoria/resultado': typeof MemoriaResultadoRoute
+  '/morse/mundo-1': typeof MorseMundo1Route
   '/recall/jogar': typeof RecallJogarRoute
   '/recall/resultado': typeof RecallResultadoRoute
   '/regra/jogar': typeof RegraJogarRoute
@@ -418,9 +468,11 @@ export interface FileRoutesById {
   '/cripto/': typeof CriptoIndexRoute
   '/cruzada/': typeof CruzadaIndexRoute
   '/dicotico/': typeof DicoticoIndexRoute
+  '/einstein/': typeof EinsteinIndexRoute
   '/grid/': typeof GridIndexRoute
   '/matriz/': typeof MatrizIndexRoute
   '/memoria/': typeof MemoriaIndexRoute
+  '/morse/': typeof MorseIndexRoute
   '/recall/': typeof RecallIndexRoute
   '/regra/': typeof RegraIndexRoute
   '/sequencia/': typeof SequenciaIndexRoute
@@ -437,9 +489,11 @@ export interface FileRouteTypes {
     | '/cripto'
     | '/cruzada'
     | '/dicotico'
+    | '/einstein'
     | '/grid'
     | '/matriz'
     | '/memoria'
+    | '/morse'
     | '/recall'
     | '/regra'
     | '/sequencia'
@@ -453,10 +507,12 @@ export interface FileRouteTypes {
     | '/cripto/jogar'
     | '/cruzada/jogar'
     | '/dicotico/jogar'
+    | '/einstein/jogar'
     | '/grid/jogar'
     | '/matriz/jogar'
     | '/memoria/jogar'
     | '/memoria/resultado'
+    | '/morse/mundo-1'
     | '/recall/jogar'
     | '/recall/resultado'
     | '/regra/jogar'
@@ -469,9 +525,11 @@ export interface FileRouteTypes {
     | '/cripto/'
     | '/cruzada/'
     | '/dicotico/'
+    | '/einstein/'
     | '/grid/'
     | '/matriz/'
     | '/memoria/'
+    | '/morse/'
     | '/recall/'
     | '/regra/'
     | '/sequencia/'
@@ -488,10 +546,12 @@ export interface FileRouteTypes {
     | '/cripto/jogar'
     | '/cruzada/jogar'
     | '/dicotico/jogar'
+    | '/einstein/jogar'
     | '/grid/jogar'
     | '/matriz/jogar'
     | '/memoria/jogar'
     | '/memoria/resultado'
+    | '/morse/mundo-1'
     | '/recall/jogar'
     | '/recall/resultado'
     | '/regra/jogar'
@@ -504,9 +564,11 @@ export interface FileRouteTypes {
     | '/cripto'
     | '/cruzada'
     | '/dicotico'
+    | '/einstein'
     | '/grid'
     | '/matriz'
     | '/memoria'
+    | '/morse'
     | '/recall'
     | '/regra'
     | '/sequencia'
@@ -521,9 +583,11 @@ export interface FileRouteTypes {
     | '/cripto'
     | '/cruzada'
     | '/dicotico'
+    | '/einstein'
     | '/grid'
     | '/matriz'
     | '/memoria'
+    | '/morse'
     | '/recall'
     | '/regra'
     | '/sequencia'
@@ -537,10 +601,12 @@ export interface FileRouteTypes {
     | '/cripto/jogar'
     | '/cruzada/jogar'
     | '/dicotico/jogar'
+    | '/einstein/jogar'
     | '/grid/jogar'
     | '/matriz/jogar'
     | '/memoria/jogar'
     | '/memoria/resultado'
+    | '/morse/mundo-1'
     | '/recall/jogar'
     | '/recall/resultado'
     | '/regra/jogar'
@@ -553,9 +619,11 @@ export interface FileRouteTypes {
     | '/cripto/'
     | '/cruzada/'
     | '/dicotico/'
+    | '/einstein/'
     | '/grid/'
     | '/matriz/'
     | '/memoria/'
+    | '/morse/'
     | '/recall/'
     | '/regra/'
     | '/sequencia/'
@@ -571,9 +639,11 @@ export interface RootRouteChildren {
   CriptoRoute: typeof CriptoRouteWithChildren
   CruzadaRoute: typeof CruzadaRouteWithChildren
   DicoticoRoute: typeof DicoticoRouteWithChildren
+  EinsteinRoute: typeof EinsteinRouteWithChildren
   GridRoute: typeof GridRouteWithChildren
   MatrizRoute: typeof MatrizRouteWithChildren
   MemoriaRoute: typeof MemoriaRouteWithChildren
+  MorseRoute: typeof MorseRouteWithChildren
   RecallRoute: typeof RecallRouteWithChildren
   RegraRoute: typeof RegraRouteWithChildren
   SequenciaRoute: typeof SequenciaRouteWithChildren
@@ -626,6 +696,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RecallRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/morse': {
+      id: '/morse'
+      path: '/morse'
+      fullPath: '/morse'
+      preLoaderRoute: typeof MorseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/memoria': {
       id: '/memoria'
       path: '/memoria'
@@ -645,6 +722,13 @@ declare module '@tanstack/react-router' {
       path: '/grid'
       fullPath: '/grid'
       preLoaderRoute: typeof GridRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/einstein': {
+      id: '/einstein'
+      path: '/einstein'
+      fullPath: '/einstein'
+      preLoaderRoute: typeof EinsteinRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dicotico': {
@@ -731,6 +815,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RecallIndexRouteImport
       parentRoute: typeof RecallRoute
     }
+    '/morse/': {
+      id: '/morse/'
+      path: '/'
+      fullPath: '/morse/'
+      preLoaderRoute: typeof MorseIndexRouteImport
+      parentRoute: typeof MorseRoute
+    }
     '/memoria/': {
       id: '/memoria/'
       path: '/'
@@ -751,6 +842,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/grid/'
       preLoaderRoute: typeof GridIndexRouteImport
       parentRoute: typeof GridRoute
+    }
+    '/einstein/': {
+      id: '/einstein/'
+      path: '/'
+      fullPath: '/einstein/'
+      preLoaderRoute: typeof EinsteinIndexRouteImport
+      parentRoute: typeof EinsteinRoute
     }
     '/dicotico/': {
       id: '/dicotico/'
@@ -836,6 +934,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RecallJogarRouteImport
       parentRoute: typeof RecallRoute
     }
+    '/morse/mundo-1': {
+      id: '/morse/mundo-1'
+      path: '/mundo-1'
+      fullPath: '/morse/mundo-1'
+      preLoaderRoute: typeof MorseMundo1RouteImport
+      parentRoute: typeof MorseRoute
+    }
     '/memoria/resultado': {
       id: '/memoria/resultado'
       path: '/resultado'
@@ -863,6 +968,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/grid/jogar'
       preLoaderRoute: typeof GridJogarRouteImport
       parentRoute: typeof GridRoute
+    }
+    '/einstein/jogar': {
+      id: '/einstein/jogar'
+      path: '/jogar'
+      fullPath: '/einstein/jogar'
+      preLoaderRoute: typeof EinsteinJogarRouteImport
+      parentRoute: typeof EinsteinRoute
     }
     '/dicotico/jogar': {
       id: '/dicotico/jogar'
@@ -996,6 +1108,20 @@ const DicoticoRouteWithChildren = DicoticoRoute._addFileChildren(
   DicoticoRouteChildren,
 )
 
+interface EinsteinRouteChildren {
+  EinsteinJogarRoute: typeof EinsteinJogarRoute
+  EinsteinIndexRoute: typeof EinsteinIndexRoute
+}
+
+const EinsteinRouteChildren: EinsteinRouteChildren = {
+  EinsteinJogarRoute: EinsteinJogarRoute,
+  EinsteinIndexRoute: EinsteinIndexRoute,
+}
+
+const EinsteinRouteWithChildren = EinsteinRoute._addFileChildren(
+  EinsteinRouteChildren,
+)
+
 interface GridRouteChildren {
   GridJogarRoute: typeof GridJogarRoute
   GridIndexRoute: typeof GridIndexRoute
@@ -1035,6 +1161,18 @@ const MemoriaRouteChildren: MemoriaRouteChildren = {
 
 const MemoriaRouteWithChildren =
   MemoriaRoute._addFileChildren(MemoriaRouteChildren)
+
+interface MorseRouteChildren {
+  MorseMundo1Route: typeof MorseMundo1Route
+  MorseIndexRoute: typeof MorseIndexRoute
+}
+
+const MorseRouteChildren: MorseRouteChildren = {
+  MorseMundo1Route: MorseMundo1Route,
+  MorseIndexRoute: MorseIndexRoute,
+}
+
+const MorseRouteWithChildren = MorseRoute._addFileChildren(MorseRouteChildren)
 
 interface RecallRouteChildren {
   RecallJogarRoute: typeof RecallJogarRoute
@@ -1110,9 +1248,11 @@ const rootRouteChildren: RootRouteChildren = {
   CriptoRoute: CriptoRouteWithChildren,
   CruzadaRoute: CruzadaRouteWithChildren,
   DicoticoRoute: DicoticoRouteWithChildren,
+  EinsteinRoute: EinsteinRouteWithChildren,
   GridRoute: GridRouteWithChildren,
   MatrizRoute: MatrizRouteWithChildren,
   MemoriaRoute: MemoriaRouteWithChildren,
+  MorseRoute: MorseRouteWithChildren,
   RecallRoute: RecallRouteWithChildren,
   RegraRoute: RegraRouteWithChildren,
   SequenciaRoute: SequenciaRouteWithChildren,

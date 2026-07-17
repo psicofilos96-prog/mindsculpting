@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Brain, Calculator, Grid3x3, Hash, Headphones, LayoutGrid, Palette, Sparkles, Target, Disc3, BookOpen, Puzzle as PuzzleIcon, Grid2x2, Lock, Vault } from "lucide-react";
+import { Brain, Calculator, Grid3x3, Hash, Headphones, LayoutGrid, Palette, Sparkles, Target, Disc3, BookOpen, Puzzle as PuzzleIcon, Grid2x2, Lock, Vault, BrainCircuit, Radio } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
 import { useLocalProgress } from "@/features/progress/useLocalProgress";
 import { LEVEL_CONFIG, LEVELS } from "@/features/calculo/types";
@@ -263,6 +263,23 @@ function Home() {
         </Link>
 
         <Link
+          to="/einstein"
+          className="group block rounded-2xl border border-border bg-card p-5 shadow-card transition-all hover:border-primary/50 hover:shadow-glow-primary"
+        >
+          <div className="flex items-start gap-4">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-neural">
+              <BrainCircuit className="h-6 w-6 text-primary-foreground" />
+            </div>
+            <div className="flex-1">
+              <h3 className="font-display text-lg font-semibold">Teste de Einstein</h3>
+              <p className="mt-1 text-xs text-muted-foreground">
+                Dedução lógica pura — o clássico teste de Einstein e 10 temas adicionais com geração procedural.
+              </p>
+            </div>
+          </div>
+        </Link>
+
+        <Link
           to="/cofres"
           className="group block rounded-2xl border border-border bg-card p-5 shadow-card transition-all hover:border-primary/50 hover:shadow-glow-primary"
         >
@@ -296,6 +313,22 @@ function Home() {
           </div>
         </Link>
 
+        <Link
+          to="/morse"
+          className="group block rounded-2xl border border-border bg-card p-5 shadow-card transition-all hover:border-primary/50 hover:shadow-glow-primary"
+        >
+          <div className="flex items-start gap-4">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-neural">
+              <Radio className="h-6 w-6 text-primary-foreground" />
+            </div>
+            <div className="flex-1">
+              <h3 className="font-display text-lg font-semibold">Código Morse</h3>
+              <p className="mt-1 text-xs text-muted-foreground">
+                Aprenda a decodificar sinais sonoros — ponto e traço, no ritmo real do Morse.
+              </p>
+            </div>
+          </div>
+        </Link>
       </section>
 
       <p className="mt-8 text-center text-xs text-muted-foreground">
