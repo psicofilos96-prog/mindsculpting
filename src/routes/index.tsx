@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Brain, Calculator, Grid3x3, Hash, Headphones, LayoutGrid, Palette, Sparkles, Target } from "lucide-react";
+import { Brain, Calculator, Grid3x3, Hash, Headphones, LayoutGrid, Palette, Sparkles, Target, Disc3, BookOpen, Puzzle as PuzzleIcon, Grid2x2, Lock, Vault } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
 import { useLocalProgress } from "@/features/progress/useLocalProgress";
 import { LEVEL_CONFIG, LEVELS } from "@/features/calculo/types";
@@ -58,10 +58,10 @@ function Home() {
             <div className="flex-1">
               <h3 className="font-display text-lg font-semibold">Cálculo Mental</h3>
               <p className="mt-1 text-xs text-muted-foreground">
-                Fácil · Médio · Difícil · Einstein — 4 níveis com sequência acelerada.
+                9 níveis — do iniciante ao Einstein. Modo flash, contra o tempo e sobrevivência.
               </p>
               <div className="mt-3 flex flex-wrap gap-1.5">
-                {LEVELS.map((lv) => {
+                {LEVELS.slice(0, 4).map((lv) => {
                   const stat = state.stats[lv];
                   const games = stat?.games ?? 0;
                   return (
@@ -69,10 +69,13 @@ function Home() {
                       key={lv}
                       className="rounded-full bg-secondary/70 px-2 py-0.5 text-[10px] font-medium text-muted-foreground"
                     >
-                      {LEVEL_CONFIG[lv].label}: {games}
+                      {LEVEL_CONFIG[lv].label.split(" — ")[0]}: {games}
                     </span>
                   );
                 })}
+                <span className="rounded-full bg-secondary/70 px-2 py-0.5 text-[10px] font-medium text-muted-foreground">
+                  +5 níveis
+                </span>
               </div>
             </div>
           </div>
@@ -90,6 +93,23 @@ function Home() {
               <h3 className="font-display text-lg font-semibold">Memorização</h3>
               <p className="mt-1 text-xs text-muted-foreground">
                 Números e letras · direto, reverso e posição · progressão adaptativa e chunking.
+              </p>
+            </div>
+          </div>
+        </Link>
+
+        <Link
+          to="/recall"
+          className="group block rounded-2xl border border-border bg-card p-5 shadow-card transition-all hover:border-primary/50 hover:shadow-glow-primary"
+        >
+          <div className="flex items-start gap-4">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-neural">
+              <BookOpen className="h-6 w-6 text-primary-foreground" />
+            </div>
+            <div className="flex-1">
+              <h3 className="font-display text-lg font-semibold">Recordação Livre de Palavras</h3>
+              <p className="mt-1 text-xs text-muted-foreground">
+                320 palavras em 16 categorias · 6 modos · recordação, reconhecimento, curva de aprendizagem.
               </p>
             </div>
           </div>
@@ -174,11 +194,108 @@ function Home() {
             </div>
           </div>
         </Link>
-        <ComingSoonCard
-          icon={<Headphones className="h-6 w-6" />}
-          title="Escuta Dicótica"
-          desc="Áudio distinto em cada ouvido — integração hemisférica."
-        />
+        <Link
+          to="/dicotico"
+          className="group block rounded-2xl border border-border bg-card p-5 shadow-card transition-all hover:border-primary/50 hover:shadow-glow-primary"
+        >
+          <div className="flex items-start gap-4">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-neural">
+              <Headphones className="h-6 w-6 text-primary-foreground" />
+            </div>
+            <div className="flex-1">
+              <h3 className="font-display text-lg font-semibold">Escuta Dicótica</h3>
+              <p className="mt-1 text-xs text-muted-foreground">
+                Sons diferentes em cada ouvido simultaneamente — integração hemisférica via corpo caloso.
+              </p>
+            </div>
+          </div>
+        </Link>
+
+        <Link
+          to="/sequencia"
+          className="group block rounded-2xl border border-border bg-card p-5 shadow-card transition-all hover:border-primary/50 hover:shadow-glow-primary"
+        >
+          <div className="flex items-start gap-4">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-neural">
+              <Disc3 className="h-6 w-6 text-primary-foreground" />
+            </div>
+            <div className="flex-1">
+              <h3 className="font-display text-lg font-semibold">Memory Sequence</h3>
+              <p className="mt-1 text-xs text-muted-foreground">
+                Repita a sequência de cores que cresce a cada rodada — memória de trabalho e atenção sustentada.
+              </p>
+            </div>
+          </div>
+        </Link>
+
+        <Link
+          to="/slide"
+          className="group block rounded-2xl border border-border bg-card p-5 shadow-card transition-all hover:border-primary/50 hover:shadow-glow-primary"
+        >
+          <div className="flex items-start gap-4">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-neural">
+              <PuzzleIcon className="h-6 w-6 text-primary-foreground" />
+            </div>
+            <div className="flex-1">
+              <h3 className="font-display text-lg font-semibold">Slide Puzzle</h3>
+              <p className="mt-1 text-xs text-muted-foreground">
+                Deslize as peças para reconstituir a sequência — do 3×3 clássico ao desafiador 6×6, modo números ou imagem.
+              </p>
+            </div>
+          </div>
+        </Link>
+
+        <Link
+          to="/cripto"
+          className="group block rounded-2xl border border-border bg-card p-5 shadow-card transition-all hover:border-primary/50 hover:shadow-glow-primary"
+        >
+          <div className="flex items-start gap-4">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-neural">
+              <Lock className="h-6 w-6 text-primary-foreground" />
+            </div>
+            <div className="flex-1">
+              <h3 className="font-display text-lg font-semibold">Criptograma</h3>
+              <p className="mt-1 text-xs text-muted-foreground">
+                Descubra mensagens ocultas — substituição simples, símbolos, César e código numérico.
+              </p>
+            </div>
+          </div>
+        </Link>
+
+        <Link
+          to="/cofres"
+          className="group block rounded-2xl border border-border bg-card p-5 shadow-card transition-all hover:border-primary/50 hover:shadow-glow-primary"
+        >
+          <div className="flex items-start gap-4">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-neural">
+              <Vault className="h-6 w-6 text-primary-foreground" />
+            </div>
+            <div className="flex-1">
+              <h3 className="font-display text-lg font-semibold">Cofres Lógicos</h3>
+              <p className="mt-1 text-xs text-muted-foreground">
+                Descubra a senha secreta com tentativas e feedback lógico — dedução estilo Mastermind.
+              </p>
+            </div>
+          </div>
+        </Link>
+
+        <Link
+          to="/matriz"
+          className="group block rounded-2xl border border-border bg-card p-5 shadow-card transition-all hover:border-primary/50 hover:shadow-glow-primary"
+        >
+          <div className="flex items-start gap-4">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-neural">
+              <Grid2x2 className="h-6 w-6 text-primary-foreground" />
+            </div>
+            <div className="flex-1">
+              <h3 className="font-display text-lg font-semibold">Matriz de Restrições</h3>
+              <p className="mt-1 text-xs text-muted-foreground">
+                Grade Latin Square com restrições aritméticas e de ordem — deduza o valor de cada linha para resolver.
+              </p>
+            </div>
+          </div>
+        </Link>
+
       </section>
 
       <p className="mt-8 text-center text-xs text-muted-foreground">
@@ -199,23 +316,4 @@ function StatBadge({ label, value }: { label: string; value: string }) {
   );
 }
 
-function ComingSoonCard({ icon, title, desc }: { icon: React.ReactNode; title: string; desc: string }) {
-  return (
-    <div className="block rounded-2xl border border-dashed border-border/70 bg-card/30 p-5 opacity-70">
-      <div className="flex items-start gap-4">
-        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-secondary/60 text-muted-foreground">
-          {icon}
-        </div>
-        <div className="flex-1">
-          <div className="flex items-center gap-2">
-            <h3 className="font-display text-base font-semibold text-foreground">{title}</h3>
-            <span className="rounded-full bg-accent/20 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-accent">
-              Em breve
-            </span>
-          </div>
-          <p className="mt-1 text-xs text-muted-foreground">{desc}</p>
-        </div>
-      </div>
-    </div>
-  );
-}
+

@@ -11,26 +11,48 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as StroopRouteImport } from './routes/stroop'
 import { Route as SobreRouteImport } from './routes/sobre'
+import { Route as SlideRouteImport } from './routes/slide'
+import { Route as SequenciaRouteImport } from './routes/sequencia'
 import { Route as RegraRouteImport } from './routes/regra'
+import { Route as RecallRouteImport } from './routes/recall'
 import { Route as MemoriaRouteImport } from './routes/memoria'
+import { Route as MatrizRouteImport } from './routes/matriz'
 import { Route as GridRouteImport } from './routes/grid'
+import { Route as DicoticoRouteImport } from './routes/dicotico'
 import { Route as CruzadaRouteImport } from './routes/cruzada'
+import { Route as CriptoRouteImport } from './routes/cripto'
+import { Route as CofresRouteImport } from './routes/cofres'
 import { Route as CalculoRouteImport } from './routes/calculo'
 import { Route as AritRouteImport } from './routes/arit'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as StroopIndexRouteImport } from './routes/stroop.index'
+import { Route as SlideIndexRouteImport } from './routes/slide.index'
+import { Route as SequenciaIndexRouteImport } from './routes/sequencia.index'
 import { Route as RegraIndexRouteImport } from './routes/regra.index'
+import { Route as RecallIndexRouteImport } from './routes/recall.index'
 import { Route as MemoriaIndexRouteImport } from './routes/memoria.index'
+import { Route as MatrizIndexRouteImport } from './routes/matriz.index'
 import { Route as GridIndexRouteImport } from './routes/grid.index'
+import { Route as DicoticoIndexRouteImport } from './routes/dicotico.index'
 import { Route as CruzadaIndexRouteImport } from './routes/cruzada.index'
+import { Route as CriptoIndexRouteImport } from './routes/cripto.index'
+import { Route as CofresIndexRouteImport } from './routes/cofres.index'
 import { Route as CalculoIndexRouteImport } from './routes/calculo.index'
 import { Route as AritIndexRouteImport } from './routes/arit.index'
 import { Route as StroopJogarRouteImport } from './routes/stroop.jogar'
+import { Route as SlideJogarRouteImport } from './routes/slide.jogar'
+import { Route as SequenciaJogarRouteImport } from './routes/sequencia.jogar'
 import { Route as RegraJogarRouteImport } from './routes/regra.jogar'
+import { Route as RecallResultadoRouteImport } from './routes/recall.resultado'
+import { Route as RecallJogarRouteImport } from './routes/recall.jogar'
 import { Route as MemoriaResultadoRouteImport } from './routes/memoria.resultado'
 import { Route as MemoriaJogarRouteImport } from './routes/memoria.jogar'
+import { Route as MatrizJogarRouteImport } from './routes/matriz.jogar'
 import { Route as GridJogarRouteImport } from './routes/grid.jogar'
+import { Route as DicoticoJogarRouteImport } from './routes/dicotico.jogar'
 import { Route as CruzadaJogarRouteImport } from './routes/cruzada.jogar'
+import { Route as CriptoJogarRouteImport } from './routes/cripto.jogar'
+import { Route as CofresJogarRouteImport } from './routes/cofres.jogar'
 import { Route as CalculoResultadoRouteImport } from './routes/calculo.resultado'
 import { Route as CalculoJogarRouteImport } from './routes/calculo.jogar'
 import { Route as AritJogarRouteImport } from './routes/arit.jogar'
@@ -45,9 +67,24 @@ const SobreRoute = SobreRouteImport.update({
   path: '/sobre',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SlideRoute = SlideRouteImport.update({
+  id: '/slide',
+  path: '/slide',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SequenciaRoute = SequenciaRouteImport.update({
+  id: '/sequencia',
+  path: '/sequencia',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RegraRoute = RegraRouteImport.update({
   id: '/regra',
   path: '/regra',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RecallRoute = RecallRouteImport.update({
+  id: '/recall',
+  path: '/recall',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MemoriaRoute = MemoriaRouteImport.update({
@@ -55,14 +92,34 @@ const MemoriaRoute = MemoriaRouteImport.update({
   path: '/memoria',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MatrizRoute = MatrizRouteImport.update({
+  id: '/matriz',
+  path: '/matriz',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GridRoute = GridRouteImport.update({
   id: '/grid',
   path: '/grid',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DicoticoRoute = DicoticoRouteImport.update({
+  id: '/dicotico',
+  path: '/dicotico',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CruzadaRoute = CruzadaRouteImport.update({
   id: '/cruzada',
   path: '/cruzada',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CriptoRoute = CriptoRouteImport.update({
+  id: '/cripto',
+  path: '/cripto',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CofresRoute = CofresRouteImport.update({
+  id: '/cofres',
+  path: '/cofres',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CalculoRoute = CalculoRouteImport.update({
@@ -85,25 +142,60 @@ const StroopIndexRoute = StroopIndexRouteImport.update({
   path: '/',
   getParentRoute: () => StroopRoute,
 } as any)
+const SlideIndexRoute = SlideIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => SlideRoute,
+} as any)
+const SequenciaIndexRoute = SequenciaIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => SequenciaRoute,
+} as any)
 const RegraIndexRoute = RegraIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => RegraRoute,
+} as any)
+const RecallIndexRoute = RecallIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => RecallRoute,
 } as any)
 const MemoriaIndexRoute = MemoriaIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => MemoriaRoute,
 } as any)
+const MatrizIndexRoute = MatrizIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => MatrizRoute,
+} as any)
 const GridIndexRoute = GridIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => GridRoute,
 } as any)
+const DicoticoIndexRoute = DicoticoIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => DicoticoRoute,
+} as any)
 const CruzadaIndexRoute = CruzadaIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => CruzadaRoute,
+} as any)
+const CriptoIndexRoute = CriptoIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => CriptoRoute,
+} as any)
+const CofresIndexRoute = CofresIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => CofresRoute,
 } as any)
 const CalculoIndexRoute = CalculoIndexRouteImport.update({
   id: '/',
@@ -120,10 +212,30 @@ const StroopJogarRoute = StroopJogarRouteImport.update({
   path: '/jogar',
   getParentRoute: () => StroopRoute,
 } as any)
+const SlideJogarRoute = SlideJogarRouteImport.update({
+  id: '/jogar',
+  path: '/jogar',
+  getParentRoute: () => SlideRoute,
+} as any)
+const SequenciaJogarRoute = SequenciaJogarRouteImport.update({
+  id: '/jogar',
+  path: '/jogar',
+  getParentRoute: () => SequenciaRoute,
+} as any)
 const RegraJogarRoute = RegraJogarRouteImport.update({
   id: '/jogar',
   path: '/jogar',
   getParentRoute: () => RegraRoute,
+} as any)
+const RecallResultadoRoute = RecallResultadoRouteImport.update({
+  id: '/resultado',
+  path: '/resultado',
+  getParentRoute: () => RecallRoute,
+} as any)
+const RecallJogarRoute = RecallJogarRouteImport.update({
+  id: '/jogar',
+  path: '/jogar',
+  getParentRoute: () => RecallRoute,
 } as any)
 const MemoriaResultadoRoute = MemoriaResultadoRouteImport.update({
   id: '/resultado',
@@ -135,15 +247,35 @@ const MemoriaJogarRoute = MemoriaJogarRouteImport.update({
   path: '/jogar',
   getParentRoute: () => MemoriaRoute,
 } as any)
+const MatrizJogarRoute = MatrizJogarRouteImport.update({
+  id: '/jogar',
+  path: '/jogar',
+  getParentRoute: () => MatrizRoute,
+} as any)
 const GridJogarRoute = GridJogarRouteImport.update({
   id: '/jogar',
   path: '/jogar',
   getParentRoute: () => GridRoute,
 } as any)
+const DicoticoJogarRoute = DicoticoJogarRouteImport.update({
+  id: '/jogar',
+  path: '/jogar',
+  getParentRoute: () => DicoticoRoute,
+} as any)
 const CruzadaJogarRoute = CruzadaJogarRouteImport.update({
   id: '/jogar',
   path: '/jogar',
   getParentRoute: () => CruzadaRoute,
+} as any)
+const CriptoJogarRoute = CriptoJogarRouteImport.update({
+  id: '/jogar',
+  path: '/jogar',
+  getParentRoute: () => CriptoRoute,
+} as any)
+const CofresJogarRoute = CofresJogarRouteImport.update({
+  id: '/jogar',
+  path: '/jogar',
+  getParentRoute: () => CofresRoute,
 } as any)
 const CalculoResultadoRoute = CalculoResultadoRouteImport.update({
   id: '/resultado',
@@ -165,27 +297,49 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/arit': typeof AritRouteWithChildren
   '/calculo': typeof CalculoRouteWithChildren
+  '/cofres': typeof CofresRouteWithChildren
+  '/cripto': typeof CriptoRouteWithChildren
   '/cruzada': typeof CruzadaRouteWithChildren
+  '/dicotico': typeof DicoticoRouteWithChildren
   '/grid': typeof GridRouteWithChildren
+  '/matriz': typeof MatrizRouteWithChildren
   '/memoria': typeof MemoriaRouteWithChildren
+  '/recall': typeof RecallRouteWithChildren
   '/regra': typeof RegraRouteWithChildren
+  '/sequencia': typeof SequenciaRouteWithChildren
+  '/slide': typeof SlideRouteWithChildren
   '/sobre': typeof SobreRoute
   '/stroop': typeof StroopRouteWithChildren
   '/arit/jogar': typeof AritJogarRoute
   '/calculo/jogar': typeof CalculoJogarRoute
   '/calculo/resultado': typeof CalculoResultadoRoute
+  '/cofres/jogar': typeof CofresJogarRoute
+  '/cripto/jogar': typeof CriptoJogarRoute
   '/cruzada/jogar': typeof CruzadaJogarRoute
+  '/dicotico/jogar': typeof DicoticoJogarRoute
   '/grid/jogar': typeof GridJogarRoute
+  '/matriz/jogar': typeof MatrizJogarRoute
   '/memoria/jogar': typeof MemoriaJogarRoute
   '/memoria/resultado': typeof MemoriaResultadoRoute
+  '/recall/jogar': typeof RecallJogarRoute
+  '/recall/resultado': typeof RecallResultadoRoute
   '/regra/jogar': typeof RegraJogarRoute
+  '/sequencia/jogar': typeof SequenciaJogarRoute
+  '/slide/jogar': typeof SlideJogarRoute
   '/stroop/jogar': typeof StroopJogarRoute
   '/arit/': typeof AritIndexRoute
   '/calculo/': typeof CalculoIndexRoute
+  '/cofres/': typeof CofresIndexRoute
+  '/cripto/': typeof CriptoIndexRoute
   '/cruzada/': typeof CruzadaIndexRoute
+  '/dicotico/': typeof DicoticoIndexRoute
   '/grid/': typeof GridIndexRoute
+  '/matriz/': typeof MatrizIndexRoute
   '/memoria/': typeof MemoriaIndexRoute
+  '/recall/': typeof RecallIndexRoute
   '/regra/': typeof RegraIndexRoute
+  '/sequencia/': typeof SequenciaIndexRoute
+  '/slide/': typeof SlideIndexRoute
   '/stroop/': typeof StroopIndexRoute
 }
 export interface FileRoutesByTo {
@@ -194,18 +348,33 @@ export interface FileRoutesByTo {
   '/arit/jogar': typeof AritJogarRoute
   '/calculo/jogar': typeof CalculoJogarRoute
   '/calculo/resultado': typeof CalculoResultadoRoute
+  '/cofres/jogar': typeof CofresJogarRoute
+  '/cripto/jogar': typeof CriptoJogarRoute
   '/cruzada/jogar': typeof CruzadaJogarRoute
+  '/dicotico/jogar': typeof DicoticoJogarRoute
   '/grid/jogar': typeof GridJogarRoute
+  '/matriz/jogar': typeof MatrizJogarRoute
   '/memoria/jogar': typeof MemoriaJogarRoute
   '/memoria/resultado': typeof MemoriaResultadoRoute
+  '/recall/jogar': typeof RecallJogarRoute
+  '/recall/resultado': typeof RecallResultadoRoute
   '/regra/jogar': typeof RegraJogarRoute
+  '/sequencia/jogar': typeof SequenciaJogarRoute
+  '/slide/jogar': typeof SlideJogarRoute
   '/stroop/jogar': typeof StroopJogarRoute
   '/arit': typeof AritIndexRoute
   '/calculo': typeof CalculoIndexRoute
+  '/cofres': typeof CofresIndexRoute
+  '/cripto': typeof CriptoIndexRoute
   '/cruzada': typeof CruzadaIndexRoute
+  '/dicotico': typeof DicoticoIndexRoute
   '/grid': typeof GridIndexRoute
+  '/matriz': typeof MatrizIndexRoute
   '/memoria': typeof MemoriaIndexRoute
+  '/recall': typeof RecallIndexRoute
   '/regra': typeof RegraIndexRoute
+  '/sequencia': typeof SequenciaIndexRoute
+  '/slide': typeof SlideIndexRoute
   '/stroop': typeof StroopIndexRoute
 }
 export interface FileRoutesById {
@@ -213,27 +382,49 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/arit': typeof AritRouteWithChildren
   '/calculo': typeof CalculoRouteWithChildren
+  '/cofres': typeof CofresRouteWithChildren
+  '/cripto': typeof CriptoRouteWithChildren
   '/cruzada': typeof CruzadaRouteWithChildren
+  '/dicotico': typeof DicoticoRouteWithChildren
   '/grid': typeof GridRouteWithChildren
+  '/matriz': typeof MatrizRouteWithChildren
   '/memoria': typeof MemoriaRouteWithChildren
+  '/recall': typeof RecallRouteWithChildren
   '/regra': typeof RegraRouteWithChildren
+  '/sequencia': typeof SequenciaRouteWithChildren
+  '/slide': typeof SlideRouteWithChildren
   '/sobre': typeof SobreRoute
   '/stroop': typeof StroopRouteWithChildren
   '/arit/jogar': typeof AritJogarRoute
   '/calculo/jogar': typeof CalculoJogarRoute
   '/calculo/resultado': typeof CalculoResultadoRoute
+  '/cofres/jogar': typeof CofresJogarRoute
+  '/cripto/jogar': typeof CriptoJogarRoute
   '/cruzada/jogar': typeof CruzadaJogarRoute
+  '/dicotico/jogar': typeof DicoticoJogarRoute
   '/grid/jogar': typeof GridJogarRoute
+  '/matriz/jogar': typeof MatrizJogarRoute
   '/memoria/jogar': typeof MemoriaJogarRoute
   '/memoria/resultado': typeof MemoriaResultadoRoute
+  '/recall/jogar': typeof RecallJogarRoute
+  '/recall/resultado': typeof RecallResultadoRoute
   '/regra/jogar': typeof RegraJogarRoute
+  '/sequencia/jogar': typeof SequenciaJogarRoute
+  '/slide/jogar': typeof SlideJogarRoute
   '/stroop/jogar': typeof StroopJogarRoute
   '/arit/': typeof AritIndexRoute
   '/calculo/': typeof CalculoIndexRoute
+  '/cofres/': typeof CofresIndexRoute
+  '/cripto/': typeof CriptoIndexRoute
   '/cruzada/': typeof CruzadaIndexRoute
+  '/dicotico/': typeof DicoticoIndexRoute
   '/grid/': typeof GridIndexRoute
+  '/matriz/': typeof MatrizIndexRoute
   '/memoria/': typeof MemoriaIndexRoute
+  '/recall/': typeof RecallIndexRoute
   '/regra/': typeof RegraIndexRoute
+  '/sequencia/': typeof SequenciaIndexRoute
+  '/slide/': typeof SlideIndexRoute
   '/stroop/': typeof StroopIndexRoute
 }
 export interface FileRouteTypes {
@@ -242,27 +433,49 @@ export interface FileRouteTypes {
     | '/'
     | '/arit'
     | '/calculo'
+    | '/cofres'
+    | '/cripto'
     | '/cruzada'
+    | '/dicotico'
     | '/grid'
+    | '/matriz'
     | '/memoria'
+    | '/recall'
     | '/regra'
+    | '/sequencia'
+    | '/slide'
     | '/sobre'
     | '/stroop'
     | '/arit/jogar'
     | '/calculo/jogar'
     | '/calculo/resultado'
+    | '/cofres/jogar'
+    | '/cripto/jogar'
     | '/cruzada/jogar'
+    | '/dicotico/jogar'
     | '/grid/jogar'
+    | '/matriz/jogar'
     | '/memoria/jogar'
     | '/memoria/resultado'
+    | '/recall/jogar'
+    | '/recall/resultado'
     | '/regra/jogar'
+    | '/sequencia/jogar'
+    | '/slide/jogar'
     | '/stroop/jogar'
     | '/arit/'
     | '/calculo/'
+    | '/cofres/'
+    | '/cripto/'
     | '/cruzada/'
+    | '/dicotico/'
     | '/grid/'
+    | '/matriz/'
     | '/memoria/'
+    | '/recall/'
     | '/regra/'
+    | '/sequencia/'
+    | '/slide/'
     | '/stroop/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -271,45 +484,82 @@ export interface FileRouteTypes {
     | '/arit/jogar'
     | '/calculo/jogar'
     | '/calculo/resultado'
+    | '/cofres/jogar'
+    | '/cripto/jogar'
     | '/cruzada/jogar'
+    | '/dicotico/jogar'
     | '/grid/jogar'
+    | '/matriz/jogar'
     | '/memoria/jogar'
     | '/memoria/resultado'
+    | '/recall/jogar'
+    | '/recall/resultado'
     | '/regra/jogar'
+    | '/sequencia/jogar'
+    | '/slide/jogar'
     | '/stroop/jogar'
     | '/arit'
     | '/calculo'
+    | '/cofres'
+    | '/cripto'
     | '/cruzada'
+    | '/dicotico'
     | '/grid'
+    | '/matriz'
     | '/memoria'
+    | '/recall'
     | '/regra'
+    | '/sequencia'
+    | '/slide'
     | '/stroop'
   id:
     | '__root__'
     | '/'
     | '/arit'
     | '/calculo'
+    | '/cofres'
+    | '/cripto'
     | '/cruzada'
+    | '/dicotico'
     | '/grid'
+    | '/matriz'
     | '/memoria'
+    | '/recall'
     | '/regra'
+    | '/sequencia'
+    | '/slide'
     | '/sobre'
     | '/stroop'
     | '/arit/jogar'
     | '/calculo/jogar'
     | '/calculo/resultado'
+    | '/cofres/jogar'
+    | '/cripto/jogar'
     | '/cruzada/jogar'
+    | '/dicotico/jogar'
     | '/grid/jogar'
+    | '/matriz/jogar'
     | '/memoria/jogar'
     | '/memoria/resultado'
+    | '/recall/jogar'
+    | '/recall/resultado'
     | '/regra/jogar'
+    | '/sequencia/jogar'
+    | '/slide/jogar'
     | '/stroop/jogar'
     | '/arit/'
     | '/calculo/'
+    | '/cofres/'
+    | '/cripto/'
     | '/cruzada/'
+    | '/dicotico/'
     | '/grid/'
+    | '/matriz/'
     | '/memoria/'
+    | '/recall/'
     | '/regra/'
+    | '/sequencia/'
+    | '/slide/'
     | '/stroop/'
   fileRoutesById: FileRoutesById
 }
@@ -317,10 +567,17 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AritRoute: typeof AritRouteWithChildren
   CalculoRoute: typeof CalculoRouteWithChildren
+  CofresRoute: typeof CofresRouteWithChildren
+  CriptoRoute: typeof CriptoRouteWithChildren
   CruzadaRoute: typeof CruzadaRouteWithChildren
+  DicoticoRoute: typeof DicoticoRouteWithChildren
   GridRoute: typeof GridRouteWithChildren
+  MatrizRoute: typeof MatrizRouteWithChildren
   MemoriaRoute: typeof MemoriaRouteWithChildren
+  RecallRoute: typeof RecallRouteWithChildren
   RegraRoute: typeof RegraRouteWithChildren
+  SequenciaRoute: typeof SequenciaRouteWithChildren
+  SlideRoute: typeof SlideRouteWithChildren
   SobreRoute: typeof SobreRoute
   StroopRoute: typeof StroopRouteWithChildren
 }
@@ -341,11 +598,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SobreRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/slide': {
+      id: '/slide'
+      path: '/slide'
+      fullPath: '/slide'
+      preLoaderRoute: typeof SlideRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sequencia': {
+      id: '/sequencia'
+      path: '/sequencia'
+      fullPath: '/sequencia'
+      preLoaderRoute: typeof SequenciaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/regra': {
       id: '/regra'
       path: '/regra'
       fullPath: '/regra'
       preLoaderRoute: typeof RegraRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/recall': {
+      id: '/recall'
+      path: '/recall'
+      fullPath: '/recall'
+      preLoaderRoute: typeof RecallRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/memoria': {
@@ -355,6 +633,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MemoriaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/matriz': {
+      id: '/matriz'
+      path: '/matriz'
+      fullPath: '/matriz'
+      preLoaderRoute: typeof MatrizRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/grid': {
       id: '/grid'
       path: '/grid'
@@ -362,11 +647,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GridRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dicotico': {
+      id: '/dicotico'
+      path: '/dicotico'
+      fullPath: '/dicotico'
+      preLoaderRoute: typeof DicoticoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/cruzada': {
       id: '/cruzada'
       path: '/cruzada'
       fullPath: '/cruzada'
       preLoaderRoute: typeof CruzadaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cripto': {
+      id: '/cripto'
+      path: '/cripto'
+      fullPath: '/cripto'
+      preLoaderRoute: typeof CriptoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cofres': {
+      id: '/cofres'
+      path: '/cofres'
+      fullPath: '/cofres'
+      preLoaderRoute: typeof CofresRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/calculo': {
@@ -397,12 +703,33 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StroopIndexRouteImport
       parentRoute: typeof StroopRoute
     }
+    '/slide/': {
+      id: '/slide/'
+      path: '/'
+      fullPath: '/slide/'
+      preLoaderRoute: typeof SlideIndexRouteImport
+      parentRoute: typeof SlideRoute
+    }
+    '/sequencia/': {
+      id: '/sequencia/'
+      path: '/'
+      fullPath: '/sequencia/'
+      preLoaderRoute: typeof SequenciaIndexRouteImport
+      parentRoute: typeof SequenciaRoute
+    }
     '/regra/': {
       id: '/regra/'
       path: '/'
       fullPath: '/regra/'
       preLoaderRoute: typeof RegraIndexRouteImport
       parentRoute: typeof RegraRoute
+    }
+    '/recall/': {
+      id: '/recall/'
+      path: '/'
+      fullPath: '/recall/'
+      preLoaderRoute: typeof RecallIndexRouteImport
+      parentRoute: typeof RecallRoute
     }
     '/memoria/': {
       id: '/memoria/'
@@ -411,6 +738,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MemoriaIndexRouteImport
       parentRoute: typeof MemoriaRoute
     }
+    '/matriz/': {
+      id: '/matriz/'
+      path: '/'
+      fullPath: '/matriz/'
+      preLoaderRoute: typeof MatrizIndexRouteImport
+      parentRoute: typeof MatrizRoute
+    }
     '/grid/': {
       id: '/grid/'
       path: '/'
@@ -418,12 +752,33 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GridIndexRouteImport
       parentRoute: typeof GridRoute
     }
+    '/dicotico/': {
+      id: '/dicotico/'
+      path: '/'
+      fullPath: '/dicotico/'
+      preLoaderRoute: typeof DicoticoIndexRouteImport
+      parentRoute: typeof DicoticoRoute
+    }
     '/cruzada/': {
       id: '/cruzada/'
       path: '/'
       fullPath: '/cruzada/'
       preLoaderRoute: typeof CruzadaIndexRouteImport
       parentRoute: typeof CruzadaRoute
+    }
+    '/cripto/': {
+      id: '/cripto/'
+      path: '/'
+      fullPath: '/cripto/'
+      preLoaderRoute: typeof CriptoIndexRouteImport
+      parentRoute: typeof CriptoRoute
+    }
+    '/cofres/': {
+      id: '/cofres/'
+      path: '/'
+      fullPath: '/cofres/'
+      preLoaderRoute: typeof CofresIndexRouteImport
+      parentRoute: typeof CofresRoute
     }
     '/calculo/': {
       id: '/calculo/'
@@ -446,12 +801,40 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StroopJogarRouteImport
       parentRoute: typeof StroopRoute
     }
+    '/slide/jogar': {
+      id: '/slide/jogar'
+      path: '/jogar'
+      fullPath: '/slide/jogar'
+      preLoaderRoute: typeof SlideJogarRouteImport
+      parentRoute: typeof SlideRoute
+    }
+    '/sequencia/jogar': {
+      id: '/sequencia/jogar'
+      path: '/jogar'
+      fullPath: '/sequencia/jogar'
+      preLoaderRoute: typeof SequenciaJogarRouteImport
+      parentRoute: typeof SequenciaRoute
+    }
     '/regra/jogar': {
       id: '/regra/jogar'
       path: '/jogar'
       fullPath: '/regra/jogar'
       preLoaderRoute: typeof RegraJogarRouteImport
       parentRoute: typeof RegraRoute
+    }
+    '/recall/resultado': {
+      id: '/recall/resultado'
+      path: '/resultado'
+      fullPath: '/recall/resultado'
+      preLoaderRoute: typeof RecallResultadoRouteImport
+      parentRoute: typeof RecallRoute
+    }
+    '/recall/jogar': {
+      id: '/recall/jogar'
+      path: '/jogar'
+      fullPath: '/recall/jogar'
+      preLoaderRoute: typeof RecallJogarRouteImport
+      parentRoute: typeof RecallRoute
     }
     '/memoria/resultado': {
       id: '/memoria/resultado'
@@ -467,6 +850,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MemoriaJogarRouteImport
       parentRoute: typeof MemoriaRoute
     }
+    '/matriz/jogar': {
+      id: '/matriz/jogar'
+      path: '/jogar'
+      fullPath: '/matriz/jogar'
+      preLoaderRoute: typeof MatrizJogarRouteImport
+      parentRoute: typeof MatrizRoute
+    }
     '/grid/jogar': {
       id: '/grid/jogar'
       path: '/jogar'
@@ -474,12 +864,33 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GridJogarRouteImport
       parentRoute: typeof GridRoute
     }
+    '/dicotico/jogar': {
+      id: '/dicotico/jogar'
+      path: '/jogar'
+      fullPath: '/dicotico/jogar'
+      preLoaderRoute: typeof DicoticoJogarRouteImport
+      parentRoute: typeof DicoticoRoute
+    }
     '/cruzada/jogar': {
       id: '/cruzada/jogar'
       path: '/jogar'
       fullPath: '/cruzada/jogar'
       preLoaderRoute: typeof CruzadaJogarRouteImport
       parentRoute: typeof CruzadaRoute
+    }
+    '/cripto/jogar': {
+      id: '/cripto/jogar'
+      path: '/jogar'
+      fullPath: '/cripto/jogar'
+      preLoaderRoute: typeof CriptoJogarRouteImport
+      parentRoute: typeof CriptoRoute
+    }
+    '/cofres/jogar': {
+      id: '/cofres/jogar'
+      path: '/jogar'
+      fullPath: '/cofres/jogar'
+      preLoaderRoute: typeof CofresJogarRouteImport
+      parentRoute: typeof CofresRoute
     }
     '/calculo/resultado': {
       id: '/calculo/resultado'
@@ -532,6 +943,32 @@ const CalculoRouteChildren: CalculoRouteChildren = {
 const CalculoRouteWithChildren =
   CalculoRoute._addFileChildren(CalculoRouteChildren)
 
+interface CofresRouteChildren {
+  CofresJogarRoute: typeof CofresJogarRoute
+  CofresIndexRoute: typeof CofresIndexRoute
+}
+
+const CofresRouteChildren: CofresRouteChildren = {
+  CofresJogarRoute: CofresJogarRoute,
+  CofresIndexRoute: CofresIndexRoute,
+}
+
+const CofresRouteWithChildren =
+  CofresRoute._addFileChildren(CofresRouteChildren)
+
+interface CriptoRouteChildren {
+  CriptoJogarRoute: typeof CriptoJogarRoute
+  CriptoIndexRoute: typeof CriptoIndexRoute
+}
+
+const CriptoRouteChildren: CriptoRouteChildren = {
+  CriptoJogarRoute: CriptoJogarRoute,
+  CriptoIndexRoute: CriptoIndexRoute,
+}
+
+const CriptoRouteWithChildren =
+  CriptoRoute._addFileChildren(CriptoRouteChildren)
+
 interface CruzadaRouteChildren {
   CruzadaJogarRoute: typeof CruzadaJogarRoute
   CruzadaIndexRoute: typeof CruzadaIndexRoute
@@ -545,6 +982,20 @@ const CruzadaRouteChildren: CruzadaRouteChildren = {
 const CruzadaRouteWithChildren =
   CruzadaRoute._addFileChildren(CruzadaRouteChildren)
 
+interface DicoticoRouteChildren {
+  DicoticoJogarRoute: typeof DicoticoJogarRoute
+  DicoticoIndexRoute: typeof DicoticoIndexRoute
+}
+
+const DicoticoRouteChildren: DicoticoRouteChildren = {
+  DicoticoJogarRoute: DicoticoJogarRoute,
+  DicoticoIndexRoute: DicoticoIndexRoute,
+}
+
+const DicoticoRouteWithChildren = DicoticoRoute._addFileChildren(
+  DicoticoRouteChildren,
+)
+
 interface GridRouteChildren {
   GridJogarRoute: typeof GridJogarRoute
   GridIndexRoute: typeof GridIndexRoute
@@ -556,6 +1007,19 @@ const GridRouteChildren: GridRouteChildren = {
 }
 
 const GridRouteWithChildren = GridRoute._addFileChildren(GridRouteChildren)
+
+interface MatrizRouteChildren {
+  MatrizJogarRoute: typeof MatrizJogarRoute
+  MatrizIndexRoute: typeof MatrizIndexRoute
+}
+
+const MatrizRouteChildren: MatrizRouteChildren = {
+  MatrizJogarRoute: MatrizJogarRoute,
+  MatrizIndexRoute: MatrizIndexRoute,
+}
+
+const MatrizRouteWithChildren =
+  MatrizRoute._addFileChildren(MatrizRouteChildren)
 
 interface MemoriaRouteChildren {
   MemoriaJogarRoute: typeof MemoriaJogarRoute
@@ -572,6 +1036,21 @@ const MemoriaRouteChildren: MemoriaRouteChildren = {
 const MemoriaRouteWithChildren =
   MemoriaRoute._addFileChildren(MemoriaRouteChildren)
 
+interface RecallRouteChildren {
+  RecallJogarRoute: typeof RecallJogarRoute
+  RecallResultadoRoute: typeof RecallResultadoRoute
+  RecallIndexRoute: typeof RecallIndexRoute
+}
+
+const RecallRouteChildren: RecallRouteChildren = {
+  RecallJogarRoute: RecallJogarRoute,
+  RecallResultadoRoute: RecallResultadoRoute,
+  RecallIndexRoute: RecallIndexRoute,
+}
+
+const RecallRouteWithChildren =
+  RecallRoute._addFileChildren(RecallRouteChildren)
+
 interface RegraRouteChildren {
   RegraJogarRoute: typeof RegraJogarRoute
   RegraIndexRoute: typeof RegraIndexRoute
@@ -583,6 +1062,32 @@ const RegraRouteChildren: RegraRouteChildren = {
 }
 
 const RegraRouteWithChildren = RegraRoute._addFileChildren(RegraRouteChildren)
+
+interface SequenciaRouteChildren {
+  SequenciaJogarRoute: typeof SequenciaJogarRoute
+  SequenciaIndexRoute: typeof SequenciaIndexRoute
+}
+
+const SequenciaRouteChildren: SequenciaRouteChildren = {
+  SequenciaJogarRoute: SequenciaJogarRoute,
+  SequenciaIndexRoute: SequenciaIndexRoute,
+}
+
+const SequenciaRouteWithChildren = SequenciaRoute._addFileChildren(
+  SequenciaRouteChildren,
+)
+
+interface SlideRouteChildren {
+  SlideJogarRoute: typeof SlideJogarRoute
+  SlideIndexRoute: typeof SlideIndexRoute
+}
+
+const SlideRouteChildren: SlideRouteChildren = {
+  SlideJogarRoute: SlideJogarRoute,
+  SlideIndexRoute: SlideIndexRoute,
+}
+
+const SlideRouteWithChildren = SlideRoute._addFileChildren(SlideRouteChildren)
 
 interface StroopRouteChildren {
   StroopJogarRoute: typeof StroopJogarRoute
@@ -601,13 +1106,30 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AritRoute: AritRouteWithChildren,
   CalculoRoute: CalculoRouteWithChildren,
+  CofresRoute: CofresRouteWithChildren,
+  CriptoRoute: CriptoRouteWithChildren,
   CruzadaRoute: CruzadaRouteWithChildren,
+  DicoticoRoute: DicoticoRouteWithChildren,
   GridRoute: GridRouteWithChildren,
+  MatrizRoute: MatrizRouteWithChildren,
   MemoriaRoute: MemoriaRouteWithChildren,
+  RecallRoute: RecallRouteWithChildren,
   RegraRoute: RegraRouteWithChildren,
+  SequenciaRoute: SequenciaRouteWithChildren,
+  SlideRoute: SlideRouteWithChildren,
   SobreRoute: SobreRoute,
   StroopRoute: StroopRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

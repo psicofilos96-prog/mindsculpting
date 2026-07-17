@@ -34,11 +34,29 @@ function Sobre() {
         </section>
 
         <section>
+          <h2 className="mb-2 font-display text-base text-foreground">Escuta dicótica</h2>
+          <p>
+            Dois sons diferentes chegam simultaneamente a cada ouvido. O <span className="text-foreground">corpo caloso</span>{" "}
+            precisa transferir a informação entre os hemisférios para que o cérebro identifique e
+            separe os dois estímulos. Esse paradigma é usado há décadas para estudar lateralização
+            e integração interhemisférica.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="mb-2 font-display text-base text-foreground">Memory Sequence</h2>
+          <p>
+            Repetir sequências crescentes de estímulos visuais e auditivos recruta o{" "}
+            <span className="text-foreground">córtex pré-frontal dorsolateral</span> e o{" "}
+            <span className="text-foreground">córtex parietal</span>, fundamentais para a memória de
+            trabalho. A ligação áudio-visual fortalece circuitos de integração multissensorial.
+          </p>
+        </section>
+
+        <section>
           <h2 className="mb-2 font-display text-base text-foreground">Em breve</h2>
           <ul className="list-disc space-y-1 pl-5">
-            <li><span className="text-foreground">Memorização</span> — buffer fonológico e recall reverso.</li>
             <li><span className="text-foreground">2048 aritmético</span> — flexibilidade e planejamento.</li>
-            <li><span className="text-foreground">Escuta dicótica</span> — corpo caloso e integração hemisférica.</li>
           </ul>
         </section>
       </div>

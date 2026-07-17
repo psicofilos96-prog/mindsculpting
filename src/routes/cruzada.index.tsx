@@ -1,8 +1,8 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { ChevronRight, Play } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
-import { PUZZLES, gerarTabuleiro } from "@/features/cruzada/puzzles";
-import type { Level } from "@/features/cruzada/types";
+import { LEVEL_LABEL, type Level } from "@/features/cruzada/types";
+import { templateCountByLevel } from "@/features/cruzada/puzzles";
 import { useCruzadaStorage } from "@/features/cruzada/useCruzadaStorage";
 import { cn } from "@/lib/utils";
 
@@ -10,16 +10,18 @@ export const Route = createFileRoute("/cruzada/")({
   component: CruzadaIndex,
 });
 
-const LEVEL_LABEL: Record<Level, string> = {
-  easy: "Fácil",
-  medium: "Médio",
-  hard: "Difícil",
+const LEVEL_DESC: Record<Level, string> = {
+  easy: "Grids 5×5, soma e subtração. Avaliação da esquerda para a direita.",
+  medium: "Grids 7×7–9×9, com multiplicação. Avaliação da esquerda para a direita.",
+  hard: "Grids 9×9–11×9, as 4 operações. Prioridade matemática (* / antes de + −).",
+  expert: "Grids 11×13–13×13, as 4 operações. Prioridade matemática. Muito denso.",
 };
 
-const LEVEL_DESC: Record<Level, string> = {
-  easy: "Grids menores, soma e subtração.",
-  medium: "Grids médios, com multiplicação.",
-  hard: "Grids maiores, as 4 operações.",
+const LEVEL_STYLES: Record<Level, string> = {
+  easy: "from-emerald-400/25 to-teal-400/10 border-emerald-400/40",
+  medium: "from-sky-400/25 to-cyan-400/10 border-sky-400/40",
+  hard: "from-amber-400/25 to-orange-400/10 border-amber-400/40",
+  expert: "from-rose-400/25 to-fuchsia-400/10 border-rose-400/40",
 };
 
 function formatTime(ms: number): string {
@@ -34,7 +36,7 @@ function CruzadaIndex() {
   const navigate = useNavigate();
   const { hydrated, stats } = useCruzadaStorage();
 
-  const levels: Level[] = ["easy", "medium", "hard"];
+  const levels: Level[] = ["easy", "medium", "hard", "expert"];
 
   return (
     <AppShell title="Cruzadinha Matemática" back="/">
@@ -45,65 +47,50 @@ function CruzadaIndex() {
 
       <section className="mt-6 grid grid-cols-3 gap-2">
         <Stat label="Resolvidos" value={hydrated ? String(stats.solved) : "—"} />
-        <Stat label="Puzzles" value={String(PUZZLES.length)} />
+        <Stat label="Templates" value={String(15)} />
         <Stat label="Dicas" value={hydrated ? String(stats.hintsUsed) : "—"} />
       </section>
 
-      <section className="mt-6 space-y-6">
+      <section className="mt-6 space-y-3">
+        <h2 className="px-1 font-display text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+          Dificuldade
+        </h2>
         {levels.map((lv) => {
-          const list = PUZZLES.filter((p) => p.level === lv);
-          if (list.length === 0) return null;
+          const count = templateCountByLevel(lv);
           return (
-            <div key={lv}>
-              <div className="mb-2 flex items-baseline justify-between">
-                <h2 className="font-display text-sm font-semibold uppercase tracking-wider text-muted-foreground">
-                  {LEVEL_LABEL[lv]}
-                </h2>
-                <span className="text-[10px] text-muted-foreground">{LEVEL_DESC[lv]}</span>
+            <button
+              key={lv}
+              onClick={() =>
+                navigate({ to: "/cruzada/jogar", search: { level: lv } })
+              }
+              className={cn(
+                "group relative w-full overflow-hidden rounded-2xl border bg-gradient-to-br p-4 text-left transition-all active:scale-[0.98]",
+                LEVEL_STYLES[lv],
+              )}
+            >
+              <div className="flex items-center justify-between gap-3">
+                <div className="flex-1">
+                  <div className="font-display text-base font-bold">{LEVEL_LABEL[lv]}</div>
+                  <div className="mt-0.5 text-xs text-muted-foreground">{LEVEL_DESC[lv]}</div>
+                  <div className="mt-2 text-[10px] font-mono uppercase tracking-wider text-muted-foreground/70">
+                    {count} templates · equações dinâmicas
+                  </div>
+                </div>
+                <ChevronRight className="h-5 w-5 text-foreground/70 transition-transform group-hover:translate-x-1" />
               </div>
-              <div className="space-y-2">
-                {list.map((p) => {
-                  const best = stats.bestTimes[p.id] ?? 0;
-                  return (
-                    <button
-                      key={p.id}
-                      onClick={() =>
-                        navigate({ to: "/cruzada/jogar", search: { id: p.id } })
-                      }
-                      className={cn(
-                        "flex w-full items-center justify-between rounded-2xl border border-border bg-card/60 p-4 text-left transition-all",
-                        "hover:border-primary/50 hover:shadow-glow-primary active:scale-[0.99]",
-                      )}
-                    >
-                      <div>
-                        <div className="font-display text-base font-semibold text-foreground">
-                          {p.name}
-                        </div>
-                        <div className="text-xs text-muted-foreground">
-                          {p.rows}×{p.cols} · melhor tempo:{" "}
-                          <span className="font-mono text-foreground">
-                            {hydrated ? formatTime(best) : "—"}
-                          </span>
-                        </div>
-                      </div>
-                      <ChevronRight className="h-5 w-5 text-muted-foreground" />
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
+            </button>
           );
         })}
       </section>
 
       <button
         onClick={() =>
-          navigate({ to: "/cruzada/jogar", search: { id: gerarTabuleiro().id } })
+          navigate({ to: "/cruzada/jogar", search: { level: "easy" } })
         }
         className="mt-8 flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-neural py-4 font-display text-base font-bold text-primary-foreground shadow-glow-primary transition-transform active:scale-[0.98]"
       >
         <Play className="h-5 w-5" />
-        Puzzle aleatório
+        Jogar Fácil
       </button>
     </AppShell>
   );

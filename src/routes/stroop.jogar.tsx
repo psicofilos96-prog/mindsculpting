@@ -55,9 +55,12 @@ function JogarStroop() {
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
   const rafRef = useRef<number | null>(null);
 
-  const clearAll = useCallback(() => {
+  const clearTimers = useCallback(() => {
     timers.current.forEach((t) => clearTimeout(t));
     timers.current = [];
+  }, []);
+
+  const cancelRaf = useCallback(() => {
     if (rafRef.current !== null) {
       cancelAnimationFrame(rafRef.current);
       rafRef.current = null;
@@ -88,7 +91,7 @@ function JogarStroop() {
   const submit = useCallback(
     (chosen: StroopColor | null) => {
       if (phase !== "playing") return;
-      clearAll();
+      cancelRaf();
       const elapsed = Date.now() - startTsRef.current;
       const timedOut = chosen === null;
       const correct = !timedOut && chosen.id === trial.fontColor.id;
@@ -106,7 +109,7 @@ function JogarStroop() {
       const t = setTimeout(() => advance(next), FEEDBACK_MS);
       timers.current.push(t);
     },
-    [phase, trial, answers, advance, clearAll],
+    [phase, trial, answers, advance, cancelRaf],
   );
 
   // Timer + countdown per trial
@@ -127,8 +130,8 @@ function JogarStroop() {
     };
     rafRef.current = requestAnimationFrame(tick);
 
-    return clearAll;
-  }, [phase, trial, config.timeLimitMs, submit, clearAll]);
+    return cancelRaf;
+  }, [phase, trial, config.timeLimitMs, submit, cancelRaf]);
 
   // Keyboard 1..N
   useEffect(() => {
@@ -144,7 +147,8 @@ function JogarStroop() {
   }, [phase, palette, submit]);
 
   const restart = () => {
-    clearAll();
+    clearTimers();
+    cancelRaf();
     setRound(1);
     setAnswers([]);
     setLastCorrect(null);
